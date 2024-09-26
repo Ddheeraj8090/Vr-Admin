@@ -14,9 +14,12 @@ function HeroForm() {
     cardFooter: "",
     liveButton: "",
     button1: "",
+    button1Link: "",
     button2: "",
+    button2Link: "",
     runningText: "",
     button3: "",
+    button3Link: "",
   });
 
   const [existingData, setExistingData] = useState({
@@ -30,9 +33,12 @@ function HeroForm() {
     cardFooter: "",
     liveButton: "",
     button1: "",
+    button1Link: "",
     button2: "",
+    button2Link: "",
     runningText: "",
     button3: "",
+    button3Link: "",
   });
   const [loading, setLoading] = useState(true);
   const url = process.env.REACT_APP_API_BASE_URL;
@@ -55,9 +61,12 @@ function HeroForm() {
           cardFooter: data.data.heroSectionCard.cardFooter,
           liveButton: data.data.liveButton,
           button1: data.data.button1,
+          button1Link: data.data.button1Link,
           button2: data.data.button2,
+          button2Link: data.data.button2Link,
           runningText: data.data.runningText,
           button3: data.data.button3,
+          button3Link: data.data.button3Link,
         });
         setLoading(false);
       } catch (error) {
@@ -99,9 +108,12 @@ function HeroForm() {
         },
         liveButton: inputValues.liveButton,
         button1: inputValues.button1,
+        button1Link: inputValues.button1Link,
         button2: inputValues.button2,
+        button2Link: inputValues.button2Link,
         runningText: inputValues.runningText,
         button3: inputValues.button3,
+        button3Link: inputValues.button3Link,
       })
     );
 

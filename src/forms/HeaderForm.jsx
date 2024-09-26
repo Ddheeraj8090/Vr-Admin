@@ -6,21 +6,33 @@ function HeaderForm() {
   const [inputValues, setInputValues] = useState({
     logoImage1: "",
     navlink1: "",
+    navEditLink1: "",
     navlink2: "",
+    navEditLink2: "",
     navlink3: "",
+    navEditLink3: "",
     navlink4: "",
+    navEditLink4: "",
     buttonText1: "",
+    buttonEditText1: "",
     buttonText2: "",
+    buttonEditText2: "",
   });
 
   const [existingData, setExistingData] = useState({
     logoImage1: "",
     navlink1: "",
+    navEditLink1: "",
     navlink2: "",
+    navEditLink2: "",
     navlink3: "",
+    navEditLink3: "",
     navlink4: "",
+    navEditLink4: "",
     buttonText1: "",
+    buttonEditText1: "",
     buttonText2: "",
+    buttonEditText2: "",
   });
 
   const [imagePreview, setImagePreview] = useState("");
@@ -36,11 +48,17 @@ function HeaderForm() {
         setExistingData({
           logoImage1: response.data.logoImage1,
           navlink1: response.data.navlink1,
+          navEditLink1: response.data.navEditLink1,
           navlink2: response.data.navlink2,
+          navEditLink2: response.data.navEditLink2,
           navlink3: response.data.navlink3,
+          navEditLink3: response.data.navEditLink3,
           navlink4: response.data.navlink4,
+          navEditLink4: response.data.navEditLink4,
           buttonText1: response.data.buttonText1,
+          buttonEditText1: response.data.buttonEditText1,
           buttonText2: response.data.buttonText2,
+          buttonEditText2: response.data.buttonEditText2,
         });
         setImagePreview(response.data.logoImage1);
         setLoading(false);
@@ -94,11 +112,17 @@ function HeaderForm() {
         id: 1,
         logoImage1: existingData.logoImage1, // Keep the existing logo image if none is uploaded
         navlink1: inputValues.navlink1,
+        navEditLink1: inputValues.navEditLink1,
         navlink2: inputValues.navlink2,
+        navEditLink2: inputValues.navEditLink2,
         navlink3: inputValues.navlink3,
+        navEditLink3: inputValues.navEditLink3,
         navlink4: inputValues.navlink4,
+        navEditLink4: inputValues.navEditLink4,
         buttonText1: inputValues.buttonText1,
+        buttonEditText1: inputValues.buttonEditText1,
         buttonText2: inputValues.buttonText2,
+        buttonEditText2: inputValues.buttonEditText2,
       })
     );
 
@@ -188,6 +212,23 @@ function HeaderForm() {
           </div>
         </div>
         <div className="form-group">
+          <label>Navlink 1 Link:</label>
+          <div className="adjacent-inputs">
+            <input
+              type="text"
+              name="navEditLink1"
+              value={existingData.navEditLink1}
+              disabled
+            />
+            <input
+              type="text"
+              name="navEditLink1"
+              value={inputValues.navEditLink1}
+              onChange={handleInputChange}
+            />
+          </div>
+        </div>
+        <div className="form-group">
           <label>Navlink 2:</label>
           <div className="adjacent-inputs">
             <input
@@ -200,6 +241,23 @@ function HeaderForm() {
               type="text"
               name="navlink2"
               value={inputValues.navlink2}
+              onChange={handleInputChange}
+            />
+          </div>
+        </div>
+        <div className="form-group">
+          <label>Navlink 2 Link:</label>
+          <div className="adjacent-inputs">
+            <input
+              type="text"
+              name="navEditLink2"
+              value={existingData.navEditLink2}
+              disabled
+            />
+            <input
+              type="text"
+              name="navEditLink2"
+              value={inputValues.navEditLink2}
               onChange={handleInputChange}
             />
           </div>
@@ -222,6 +280,23 @@ function HeaderForm() {
           </div>
         </div>
         <div className="form-group">
+          <label>Navlink 3 Link:</label>
+          <div className="adjacent-inputs">
+            <input
+              type="text"
+              name="navEditLink3"
+              value={existingData.navEditLink3}
+              disabled
+            />
+            <input
+              type="text"
+              name="navEditLink3"
+              value={inputValues.navEditLink3}
+              onChange={handleInputChange}
+            />
+          </div>
+        </div>
+        <div className="form-group">
           <label>Navlink 4:</label>
           <div className="adjacent-inputs">
             <input
@@ -234,6 +309,23 @@ function HeaderForm() {
               type="text"
               name="navlink4"
               value={inputValues.navlink4}
+              onChange={handleInputChange}
+            />
+          </div>
+        </div>
+        <div className="form-group">
+          <label>Navlink 4 Link:</label>
+          <div className="adjacent-inputs">
+            <input
+              type="text"
+              name="navEditLink4"
+              value={existingData.navEditLink4}
+              disabled
+            />
+            <input
+              type="text"
+              name="navEditLink4"
+              value={inputValues.navEditLink4}
               onChange={handleInputChange}
             />
           </div>
@@ -256,6 +348,23 @@ function HeaderForm() {
           </div>
         </div>
         <div className="form-group">
+          <label>Button 1 Link:</label>
+          <div className="adjacent-inputs">
+            <input
+              type="text"
+              name="buttonEditText1"
+              value={existingData.buttonEditText1}
+              disabled
+            />
+            <input
+              type="text"
+              name="buttonEditText1"
+              value={inputValues.buttonEditText1}
+              onChange={handleInputChange}
+            />
+          </div>
+        </div>
+        <div className="form-group">
           <label>Button 2:</label>
           <div className="adjacent-inputs">
             <input
@@ -268,6 +377,23 @@ function HeaderForm() {
               type="text"
               name="buttonText2"
               value={inputValues.buttonText2}
+              onChange={handleInputChange}
+            />
+          </div>
+        </div>
+        <div className="form-group">
+          <label>Button 2 Link:</label>
+          <div className="adjacent-inputs">
+            <input
+              type="text"
+              name="buttonEditText2"
+              value={existingData.buttonEditText2}
+              disabled
+            />
+            <input
+              type="text"
+              name="buttonEditText2"
+              value={inputValues.buttonEditText2}
               onChange={handleInputChange}
             />
           </div>

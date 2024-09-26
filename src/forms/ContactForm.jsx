@@ -7,11 +7,13 @@ function ContactForm() {
     id: 1,
     title: "",
     image: "",
+    imageEditLink: "",
     socialMediaImage: "",
     socialMediaHeading1: "",
     socialMediaHeading2: "",
     contactUsButton: {
       buttonText: "",
+      buttonLink: "",
     },
     contactUsImages: {
       img1: "",
@@ -44,11 +46,13 @@ function ContactForm() {
     id: 1,
     title: "",
     image: "",
+    imageEditLink: "",
     socialMediaImage: "",
     socialMediaHeading1: "",
     socialMediaHeading2: "",
     contactUsButton: {
       buttonText: "",
+      buttonLink: "",
     },
     contactUsImages: {
       img1: "",
@@ -99,11 +103,13 @@ function ContactForm() {
           id: 1,
           title: data.data.title,
           image: data.data.image,
+          imageEditLink: data.data.imageEditLink,
           socialMediaImage: data.data.socialMediaImage,
           socialMediaHeading1: data.data.socialMediaHeading1,
           socialMediaHeading2: data.data.socialMediaHeading2,
           contactUsButton: {
             buttonText: data.data.contactUsButton.buttonText,
+            buttonLink: data.data.contactUsButton.buttonLink,
           },
           contactUsImages: {
             img1: data.data.contactUsImages.img1,
@@ -145,10 +151,23 @@ function ContactForm() {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setInputValues((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+
+    // Check if the field is part of contactUsButton
+    if (name.startsWith("contactUsButton")) {
+      const field = name.split(".")[1];
+      setInputValues((prev) => ({
+        ...prev,
+        contactUsButton: {
+          ...prev.contactUsButton,
+          [field]: value,
+        },
+      }));
+    } else {
+      setInputValues((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
+    }
   };
 
   const handleTabChange = (tabName) => {
@@ -287,11 +306,13 @@ function ContactForm() {
         id: 1,
         title: inputValues.title,
         image: "",
+        imageEditLink: inputValues.imageEditLink,
         socialMediaImage: "",
         socialMediaHeading1: inputValues.socialMediaHeading1,
         socialMediaHeading2: inputValues.socialMediaHeading2,
         contactUsButton: {
           buttonText: inputValues.contactUsButton.buttonText,
+          buttonLink: inputValues.contactUsButton.buttonLink,
         },
         contactUsImages: {
           img1: "",
@@ -392,6 +413,24 @@ function ContactForm() {
         </div>
 
         <div className="form-group">
+          <label>Image Link:</label>
+          <div className="adjacent-inputs">
+            <input
+              type="text"
+              name="imageEditLink"
+              value={existingData.imageEditLink}
+              disabled
+            />
+            <input
+              type="text"
+              name="imageEditLink"
+              value={inputValues.imageEditLink}
+              onChange={handleInputChange}
+            />
+          </div>
+        </div>
+
+        <div className="form-group">
           <label>SocialMedia Image:</label>
           <div className="adjacent-inputs">
             {existingData?.socialMediaImage && (
@@ -468,14 +507,32 @@ function ContactForm() {
           <div className="adjacent-inputs">
             <input
               type="text"
-              name="buttonText"
+              name="contactUsButton.buttonText"
               value={existingData.contactUsButton.buttonText}
               disabled
             />
             <input
               type="text"
-              name="buttonText"
+              name="contactUsButton.buttonText"
               value={inputValues.contactUsButton.buttonText}
+              onChange={handleInputChange}
+            />
+          </div>
+        </div>
+
+        <div className="form-group">
+          <label>Button Link:</label>
+          <div className="adjacent-inputs">
+            <input
+              type="text"
+              name="contactUsButton.buttonLink"
+              value={existingData.contactUsButton.buttonLink}
+              disabled
+            />
+            <input
+              type="text"
+              name="contactUsButton.buttonLink"
+              value={inputValues.contactUsButton.buttonLink}
               onChange={handleInputChange}
             />
           </div>

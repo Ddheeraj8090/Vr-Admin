@@ -9,6 +9,7 @@ function ThemeParkForm() {
     body: "",
     vrThemeParkImg: "",
     button: "",
+    buttonLink: "",
   });
 
   const [existingData, setExistingData] = useState({
@@ -17,6 +18,7 @@ function ThemeParkForm() {
     body: "",
     vrThemeParkImg: "",
     button: "",
+    buttonLink: "",
   });
 
   const [imagePreview, setImagePreview] = useState("");
@@ -36,6 +38,7 @@ function ThemeParkForm() {
           body: data.data.body,
           vrThemeParkImg: data.data.vrThemeParkImg,
           button: data.data.button,
+          buttonLink: data.data.buttonLink,
         });
         setImagePreview(data.data.vrThemeParkImg);
         setLoading(false);
@@ -90,6 +93,7 @@ function ThemeParkForm() {
         subHeading: inputValues.subHeading,
         body: inputValues.body,
         button: inputValues.button,
+        buttonLink: inputValues.buttonLink,
       })
     );
 
@@ -224,6 +228,24 @@ function ThemeParkForm() {
               type="text"
               name="button"
               value={inputValues.button}
+              onChange={handleInputChange}
+            />
+          </div>
+        </div>
+
+        <div className="form-group">
+          <label>Button Link:</label>
+          <div className="adjacent-inputs">
+            <input
+              type="text"
+              name="buttonLink"
+              value={existingData.buttonLink}
+              disabled
+            />
+            <input
+              type="text"
+              name="buttonLink"
+              value={inputValues.buttonLink}
               onChange={handleInputChange}
             />
           </div>

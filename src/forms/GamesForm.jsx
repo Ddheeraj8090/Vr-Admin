@@ -15,15 +15,19 @@ function GamesForm() {
       ratingText: "",
       body: "",
       button: "",
+      buttonLink: "",
       link: "",
       linkName: "",
+      linkUrl: "",
     }),
     carousel: {
       title1: "",
       title2: "",
       subTitle1: "",
       button1: "",
+      button1EditLink: "",
       button2: "",
+      button2EditLink: "",
     },
     slides: Array(2).fill({
       image: "",
@@ -40,13 +44,16 @@ function GamesForm() {
       ratingText: "",
       body: "",
       button: "",
+      buttonLink: "",
       link: "",
       linkName: "",
+      linkUrl: "",
     }),
     button: "",
   });
 
   const [existingData, setExistingData] = useState({
+    id: 1,
     title: "",
     topHeading1: "",
     topHeading2: "",
@@ -57,15 +64,19 @@ function GamesForm() {
       ratingText: "",
       body: "",
       button: "",
+      buttonLink: "",
       link: "",
       linkName: "",
+      linkUrl: "",
     }),
     carousel: {
       title1: "",
       title2: "",
       subTitle1: "",
       button1: "",
+      button1EditLink: "",
       button2: "",
+      button2EditLink: "",
     },
     slides: Array(2).fill({
       image: "",
@@ -82,8 +93,10 @@ function GamesForm() {
       ratingText: "",
       body: "",
       button: "",
+      buttonLink: "",
       link: "",
       linkName: "",
+      linkUrl: "",
     }),
     button: "",
   });
@@ -117,15 +130,19 @@ function GamesForm() {
             ratingText: card.ratingText,
             body: card.body,
             button: card.button,
+            buttonLink: card.buttonLink,
             link: card.link,
             linkName: card.linkName,
+            linkUrl: card.linkUrl,
           })),
           carousel: {
             title1: data.data.carousel.title1,
             title2: data.data.carousel.title2,
             subTitle1: data.data.carousel.subTitle1,
             button1: data.data.carousel.button1,
+            button1EditLink: data.data.carousel.button1EditLink,
             button2: data.data.carousel.button2,
+            button2EditLink: data.data.carousel.button2EditLink,
           },
           slides: data.data.slides.map((slide) => ({
             image: slide.image,
@@ -142,8 +159,10 @@ function GamesForm() {
             ratingText: card.ratingText,
             body: card.body,
             button: card.button,
+            buttonLink: card.buttonLink,
             link: card.link,
             linkName: card.linkName,
+            linkUrl: card.linkUrl,
           })),
           button: data.data.button,
         });
@@ -309,14 +328,24 @@ function GamesForm() {
         bottomHeading2: inputValues.bottomHeading2,
         bottomBody: inputValues.bottomBody,
         button: inputValues.button,
-        carousel: inputValues.carousel,
+        carousel: {
+          title1: inputValues.carousel.title1,
+          title2: inputValues.carousel.title2,
+          subTitle1: inputValues.carousel.subTitle1,
+          button1: inputValues.carousel.button1,
+          button1EditLink: inputValues.carousel.button1EditLink,
+          button2: inputValues.carousel.button2,
+          button2EditLink: inputValues.carousel.button2EditLink,
+        },
         topCardsList: inputValues.topCardsList.map((card) => ({
           title: card.title,
           ratingText: card.ratingText,
           body: card.body,
           button: card.button,
+          buttonLink: card.buttonLink,
           link: card.link,
           linkName: card.linkName,
+          linkUrl: card.linkUrl,
         })),
         slides: inputValues.slides.map((slide) => ({
           discount: slide.discount,
@@ -327,8 +356,10 @@ function GamesForm() {
           ratingText: card.ratingText,
           body: card.body,
           button: card.button,
+          buttonLink: card.buttonLink,
           link: card.link,
           linkName: card.linkName,
+          linkUrl: card.linkUrl,
         })),
       })
     );
@@ -541,6 +572,23 @@ function GamesForm() {
           </div>
         </div>
         <div className="form-group">
+          <label>Caraousel Button 1 Link:</label>
+          <div className="adjacent-inputs">
+            <input
+              type="text"
+              name="button1EditLink"
+              value={existingData.carousel.button1EditLink}
+              disabled
+            />
+            <input
+              type="text"
+              name="button1EditLink"
+              value={inputValues.carousel.button1EditLink}
+              onChange={(e) => handleInputChange(e, null, "carousel")}
+            />
+          </div>
+        </div>
+        <div className="form-group">
           <label>Caraousel Button 2:</label>
           <div className="adjacent-inputs">
             <input
@@ -553,6 +601,23 @@ function GamesForm() {
               type="text"
               name="button2"
               value={inputValues.carousel.button2}
+              onChange={(e) => handleInputChange(e, null, "carousel")}
+            />
+          </div>
+        </div>
+        <div className="form-group">
+          <label>Caraousel Button 2:</label>
+          <div className="adjacent-inputs">
+            <input
+              type="text"
+              name="button2EditLink"
+              value={existingData.carousel.button2EditLink}
+              disabled
+            />
+            <input
+              type="text"
+              name="button2EditLink"
+              value={inputValues.carousel.button2EditLink}
               onChange={(e) => handleInputChange(e, null, "carousel")}
             />
           </div>
